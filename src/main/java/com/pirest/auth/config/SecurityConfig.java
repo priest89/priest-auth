@@ -19,7 +19,7 @@ import com.pirest.auth.service.CustomizedDetailService;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-public class AuthConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private CustomizedDetailService detailService;
 
