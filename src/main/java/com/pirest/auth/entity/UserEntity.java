@@ -1,21 +1,42 @@
 package com.pirest.auth.entity;
 
-import java.util.ArrayList;
-import java.util.Collection;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-import org.springframework.security.core.GrantedAuthority;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
+@Entity
 public class UserEntity {
-	private String userName;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	@Column
+	private String username;
+	@Column
+	@JsonIgnore
 	private String password;
-	private Collection<GrantedAuthority> grantedAuthoritiesLitst = new ArrayList<GrantedAuthority>();
+	@Column
+	private long salary;
+	@Column
+	private int age;
 
-	public String getUserName() {
-		return userName;
+	public long getId() {
+		return id;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {
@@ -26,12 +47,20 @@ public class UserEntity {
 		this.password = password;
 	}
 
-	public Collection<GrantedAuthority> getGrantedAuthoritiesLitst() {
-		return grantedAuthoritiesLitst;
+	public long getSalary() {
+		return salary;
 	}
 
-	public void setGrantedAuthoritiesLitst(Collection<GrantedAuthority> grantedAuthoritiesLitst) {
-		this.grantedAuthoritiesLitst = grantedAuthoritiesLitst;
+	public void setSalary(long salary) {
+		this.salary = salary;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
 	}
 
 }
