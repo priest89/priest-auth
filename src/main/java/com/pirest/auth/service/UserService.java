@@ -42,7 +42,7 @@ public class UserService implements UserDetailsService {
 	}
 
 	public void delete(long id) {
-		userRepository.deleteById(id);
+		userRepository.delete(id);
 	}
 
 	public UserDto save(UserEntity user) {
