@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.pirest.auth.constant.Constant;
 import com.pirest.auth.dto.UserDto;
-import com.pirest.auth.entity.UserEntity;
 import com.pirest.auth.service.UserService;
 
 @RestController
@@ -19,19 +19,25 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping(value = "/user", method = RequestMethod.GET)
+	@RequestMapping(value = "/users", method = RequestMethod.GET)
 	public List<UserDto> listUser() {
 		return userService.findAll();
 	}
 
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
-	public UserDto create(@RequestBody UserEntity user) {
+	public UserDto create(@RequestBody UserDto user) {
 		return userService.save(user);
 	}
 
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.DELETE)
 	public String delete(@PathVariable(value = "id") Long id) {
 		userService.delete(id);
-		return "success";
+		return Constant.SUCCESS;
+	}
+
+	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
+	public String get(@PathVariable(value = "id") Long id) {
+		userService.delete(id);
+		return Constant.SUCCESS;
 	}
 }
