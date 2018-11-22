@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 @EnableResourceServer
-@ComponentScan({"com.pirest.auth.service", "com.pirest.auth.config", "com.pirest.auth.controller"})
+@ComponentScan({"com.pirest.auth.service", "com.pirest.auth.config", "com.pirest.auth.controller", "com.pirest.auth.mapper"})
 @EntityScan(basePackages = { "com.pirest.auth.entity" })
 @EnableJpaRepositories(basePackages = { "com.pirest.auth.repository" })
 @EnableTransactionManagement
