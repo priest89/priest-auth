@@ -28,7 +28,7 @@ public class UserService implements UserDetailsService {
 	private UserDtoEntityMapper userMapper;
 
 	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-		UserEntity user = userRepository.findByUsername(userName);
+		UserEntity user = userRepository.findByUserName(userName);
 		if (user == null) {
 			throw new UsernameNotFoundException("Invalid username or password.");
 		}
@@ -42,7 +42,7 @@ public class UserService implements UserDetailsService {
 
 	public List<UserDto> findAll() {
 		List<UserDto> userDtos = new ArrayList<UserDto>();
-//		userRepository.findAll().iterator().forEachRemaining(list::add);
+		// userRepository.findAll().iterator().forEachRemaining(list::add);
 		List<UserEntity> userEntities = userRepository.findAll();
 		if (!CollectionUtils.isEmpty(userEntities)) {
 			userEntities.forEach(userEntity -> userDtos.add(userMapper.fromUserEntityToUserDto(userEntity)));
@@ -59,7 +59,7 @@ public class UserService implements UserDetailsService {
 		userEntity = userRepository.save(userEntity);
 		return userMapper.fromUserEntityToUserDto(userEntity);
 	}
-	
+
 	public UserDto get(Long id) {
 		UserEntity userEntity = userRepository.findOne(id);
 		return userMapper.fromUserEntityToUserDto(userEntity);
