@@ -1,4 +1,4 @@
-package com.pirest.auth.dto;
+package com.priest.auth.dto;
 
 import java.io.Serializable;
 import java.util.List;

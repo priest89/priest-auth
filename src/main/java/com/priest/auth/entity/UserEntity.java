@@ -1,4 +1,4 @@
-package com.pirest.auth.entity;
+package com.priest.auth.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

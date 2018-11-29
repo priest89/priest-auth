@@ -1,4 +1,4 @@
-package com.pirest.auth.controller;
+package com.priest.auth.controller;
 
 import org.springframework.security.oauth2.provider.endpoint.FrameworkEndpoint;
 

@@ -1,9 +1,9 @@
-package com.pirest.auth.mapper;
+package com.priest.auth.mapper;
 
 import org.springframework.stereotype.Component;
 
-import com.pirest.auth.dto.UserDto;
-import com.pirest.auth.entity.UserEntity;
+import com.priest.auth.dto.UserDto;
+import com.priest.auth.entity.UserEntity;
 
 @Component
 public class UserDtoEntityMapper {

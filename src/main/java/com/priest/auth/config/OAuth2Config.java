@@ -1,4 +1,4 @@
-package com.pirest.auth.config;
+package com.priest.auth.config;
 
 import javax.sql.DataSource;
 

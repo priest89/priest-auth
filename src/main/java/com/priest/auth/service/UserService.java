@@ -1,8 +1,9 @@
-package com.pirest.auth.service;
+package com.priest.auth.service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,10 +16,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
-import com.pirest.auth.dto.UserDto;
-import com.pirest.auth.entity.UserEntity;
-import com.pirest.auth.mapper.UserDtoEntityMapper;
-import com.pirest.auth.repository.UserRepository;
+import com.priest.auth.dto.UserDto;
+import com.priest.auth.entity.UserEntity;
+import com.priest.auth.mapper.UserDtoEntityMapper;
+import com.priest.auth.repository.UserRepository;
 
 @Service
 public class UserService implements UserDetailsService {
@@ -60,7 +61,7 @@ public class UserService implements UserDetailsService {
 
 	public void delete(long id) {
 		LOGGER.info("===== Start delete user by id =====");
-		userRepository.delete(id);
+		userRepository.deleteById(id);
 		LOGGER.info("===== End delete user by id =====");
 	}
 
@@ -74,9 +75,9 @@ public class UserService implements UserDetailsService {
 
 	public UserDto get(Long id) {
 		LOGGER.info("===== Start service get user ======");
-		UserEntity userEntity = userRepository.findOne(id);
+		Optional<UserEntity> userEntity = userRepository.findById(id);
 		LOGGER.info("===== End service get user =====");
-		return userMapper.fromUserEntityToUserDto(userEntity);
+		return userMapper.fromUserEntityToUserDto(userEntity.get());
 	}
 
 }

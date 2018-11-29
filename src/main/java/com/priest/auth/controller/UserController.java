@@ -1,4 +1,4 @@
-package com.pirest.auth.controller;
+package com.priest.auth.controller;
 
 import java.util.List;
 
@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pirest.auth.constant.Constant;
-import com.pirest.auth.dto.UserDto;
-import com.pirest.auth.service.UserService;
+import com.priest.auth.constant.Constant;
+import com.priest.auth.dto.UserDto;
+import com.priest.auth.service.UserService;
 
 @RestController
 @RequestMapping("/users")
